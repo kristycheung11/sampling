@@ -10,10 +10,37 @@ Modify the number of repetitions in the simulation to 100 (from the original 100
 
 Alter the code so that it is reproducible. Describe the changes you made to the code and how they affected the reproducibility of the script file. The output does not need to match Whitby’s original blogpost/graphs, it just needs to produce the same output when run multiple times
 
-# Author: YOUR NAME
+# Author: Kristy Cheung
 
 ```
-Please write your explanation here...
+•	Sampling Stages and procedures:
+
+1.	Primary Contact Tracing – Simple random sampling. Using the data frame ‘ppl’ infected individuals were assigned with randomly generated number between the the array of 0 and 1 using np.random.rand() function. Then, those individuals with random number below the set parameters ‘TRACE_SUCCESS’, which is equal to 0.2, will be assigned to be traced. These procedures are reflective of simple random sampling as an infected individual are randomly selected from the sample.
+
+2.	Secondary contact tracing – Purposive sampling. First, the number of people traced per event was counted using .value_counts() function and assign as ‘event_trace_counts’. Then, for any events with greater than or equal to 2 individuals that are traced (= SECONDARY_TRACE_THRESHOLD), individuals that are infected will be selected for secondary contact tracing. These procedures are reflective of purposive sampling as only infected individuals in events with record of 2 or more successfully traced individuals will be selected for secondary contact tracing.
+
+•	Sample size: 1000 people
+
+•	Sample frame: People at wedding or brunch events.
+
+•	Underlying distributions: 
+    Binomial distribution, with 20% of sample population attended wedding and 80% of sample population attended brunches and 10% infection rate.
+
+How these relate to the procedure outlined in blog post:
+
+•	The procedures in the script closely align with the procedures outlined in the blog post in terms of sampling methods and how proportions of infections attributed to wedding was calculated.
+
+Run the Python script file called whitby_covid_tracing.py as is and compare the results to the graphs in the original blog post. Does this code appear to reproduce the graphs from the original blog post? 
+
+•	No, the code does not reproduce the graphs from the original post
+
+Modify the number of repetitions in the simulation to 100 (from the original 1000). Run the script multiple times and observe the outputted graphs. Comment on the reproducibility of the results.
+
+•	Outputted graphs are not reproducible. I ran the script for 4 times and each time, the distribution varies.
+
+Alter the code so that it is reproducible. Describe the changes you made to the code and how they affected the reproducibility of the script file. The output does not need to match Whitby’s original blogpost/graphs, it just needs to produce the same output when run multiple times
+
+•	I added the code: np.random.seed(1234) which will then recreate the same set of random number each time when running the simulation, thus ensuring reproducibility of the results.
 
 ```
 
